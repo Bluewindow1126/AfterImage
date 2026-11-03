@@ -1,0 +1,193 @@
+{
+  "role": "worker",
+  "events": [
+    {
+      "id": "worker_morning_commute",
+      "phase": "morning",
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": {},
+      "title": "출근길의 갈림길",
+      "description": "첫 회의까지는 한 시간. 지하철역은 걸어서 8분 거리이고, 도로에는 출근 차량이 길게 늘어서 있다.\n회사까지는 8km 남았다.",
+      "choices": [
+        { "id": "subway", "text": "지하철을 타고 일정을 훑어본다.", "result": "유리창에 비친 얼굴이 천천히 오늘의 표정을 갖췄다.", "effects": { "transport": "subway" }, "activity": { "mode": "subway", "category": "transport", "label": "지하철", "distanceKm": 8 } },
+        { "id": "bus", "text": "버스를 타고 창가에 앉는다.", "result": "익숙한 정류장을 지나며 오늘의 일을 정리했다.", "effects": { "transport": "bus" }, "activity": { "mode": "bus", "category": "transport", "label": "버스", "distanceKm": 8 } },
+        { "id": "car", "text": "차를 몰고 조금 일찍 출발한다.", "result": "차 안에서 오늘의 첫 통화를 마쳤다.", "effects": { "transport": "car" }, "activity": { "mode": "car", "category": "transport", "label": "승용차", "distanceKm": 8 } }
+      ]
+    },
+    {
+      "id": "worker_forenoon_office",
+      "phase": "forenoon",
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": {},
+      "title": "화면 속의 오전",
+      "description": "회의가 끝났다. 창밖은 맑고, 회의실 조명은 그대로 켜져 있다. 남은 일은 생각보다 많다.",
+      "choices": [
+        { "id": "desk", "text": "자리에 돌아와 밀린 일을 정리한다.", "result": "할 일 목록에서 몇 줄이 조용히 지워졌다.", "effects": { "work_style": "desk" } },
+        { "id": "break", "text": "잠깐 바깥 공기를 쐬고 온다.", "result": "건물 밖의 빛을 보고 나서야 오전이 지나간 걸 알았다.", "effects": { "work_style": "break" } }
+      ]
+    },
+    {
+      "id": "worker_lunch",
+      "phase": "lunch",
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": {},
+      "title": "한 시간의 점심",
+      "description": "동료가 새로 생긴 식당을 추천한다. 익숙한 도시락도 냉장고에 있고, 오후에는 보고서 마감이 기다린다.",
+      "choices": [
+        { "id": "restaurant", "text": "동료와 식당에 다녀온다.", "result": "식사보다 대화가 길어진 점심이었다.", "effects": { "lunch_plan": "restaurant" } },
+        { "id": "lunchbox", "text": "도시락을 먹고 잠깐 쉰다.", "result": "익숙한 반찬을 비우고 오후를 준비했다.", "effects": { "lunch_plan": "lunchbox" } }
+      ]
+    },
+    {
+      "id": "worker_afternoon_default",
+      "phase": "afternoon",
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": {},
+      "title": "귀갓길의 선택",
+      "description": "마지막 메일을 보내고 건물을 나선다. 퇴근 시간의 도로는 붐비고, 지하철역 입구에는 사람들이 모여든다. 집까지는 8km 남았다.",
+      "choices": [
+        { "id": "subway_home", "text": "지하철에 올라 오늘의 일을 정리한다.", "result": "열차가 출발하자 창밖의 건물들이 뒤로 밀려났다. 머릿속에서도 업무가 조금씩 멀어졌다.", "effects": { "afternoon_plan": "subway", "after_work_plan": "home" }, "activity": { "mode": "subway", "category": "transport", "label": "지하철", "distanceKm": 8 } },
+        { "id": "bus_home", "text": "버스를 타고 창가에 앉아 돌아간다.", "result": "정체 구간마다 버스가 천천히 멈췄다. 창밖의 노을은 조금씩 어두워졌다.", "effects": { "afternoon_plan": "bus", "after_work_plan": "home" }, "activity": { "mode": "bus", "category": "transport", "label": "버스", "distanceKm": 8 } }
+      ]
+    },
+    {
+      "id": "worker_afternoon_car",
+      "phase": "afternoon",
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": { "transport": "car" },
+      "title": "주차장에 남은 메시지",
+      "description": "아침에 몰고 온 차가 주차장에 있다. 동료는 같은 방향이라며 함께 가자고 하고, 지하철 막차 시간은 아직 여유롭다.",
+      "choices": [
+        { "id": "drive_home", "text": "차를 몰고 바로 집으로 향한다.", "result": "익숙한 길을 따라 하루의 속도를 낮췄다. 집에 도착하면 조용히 쉬고 싶었다.", "effects": { "afternoon_plan": "car", "after_work_plan": "home" }, "activity": { "mode": "car", "category": "transport", "label": "승용차", "distanceKm": 8 } },
+        { "id": "subway_home", "text": "동료와 지하철을 타고 돌아간다.", "result": "각자의 역에서 헤어지며 내일을 기약했다. 환승 통로의 소음이 멀어졌다.", "effects": { "afternoon_plan": "subway", "after_work_plan": "home" }, "activity": { "mode": "subway", "category": "transport", "label": "지하철", "distanceKm": 8 } }
+      ]
+    },
+    {
+      "id": "worker_evening",
+      "phase": "evening",
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": { "after_work_plan": "home" },
+      "title": "집에 돌아온 뒤",
+      "description": "현관문을 닫자 하루의 소음이 멀어졌다. 조용한 방, 밀린 집안일, 그리고 잠깐의 여유가 남아 있다.",
+      "choices": [
+        { "id": "cook", "text": "집에 있는 재료로 저녁을 차린다.", "result": "냉장고에 남아 있던 재료가 저녁 식탁을 채웠다.", "effects": { "evening_routine": "cook" } },
+        { "id": "rest", "text": "간단히 먹고 소파에서 쉰다.", "result": "불을 낮추고 오늘의 생각을 잠시 내려놓았다.", "effects": { "evening_routine": "rest" } }
+      ]
+    },
+    {
+      "id": "worker_special_new_colleague",
+      "special": true,
+      "afterPhase": "morning",
+      "phase": "forenoon",
+      "timeline": { "clock": "08:15", "progress": "18%", "note": "출근 직후, 작은 부탁이 들어옵니다" },
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": {},
+      "title": "로비에서 길을 묻는 사람",
+      "description": "출근 카드를 찍고 사무실로 향하는데, 처음 보는 직원이 회의실 위치를 묻는다. 첫 일정까지는 여유가 있지만, 준비해둘 자료도 아직 가방 안에 있다.",
+      "choices": [
+        { "id": "show_the_way", "text": "회의실까지 함께 걸어가며 안내한다.", "result": "회의실 문 앞에서 짧은 인사를 나눴다. 이름은 아직 묻지 못했지만 얼굴은 기억해두었다.", "effects": { "helped_colleague": true } },
+        { "id": "give_directions", "text": "방향을 알려주고 먼저 자리로 간다.", "result": "고맙다는 말을 뒤로하고 자리에 앉았다. 메일함에는 밤사이 온 알림이 쌓여 있었다.", "effects": { "helped_colleague": false } }
+      ]
+    },
+    {
+      "id": "worker_special_meeting_room",
+      "special": true,
+      "afterPhase": "forenoon",
+      "phase": "lunch",
+      "timeline": { "clock": "11:35", "progress": "43%", "note": "점심 전, 비어 있는 회의실을 지나칩니다" },
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": { "helped_colleague": false },
+      "title": "회의가 끝난 뒤에도 켜진 화면",
+      "description": "회의실은 비었지만 화면과 조명은 그대로 켜져 있다. 다음 회의를 준비하는 동료는 잠시 자리를 비웠고, 점심 약속 시간은 가까워진다.",
+      "choices": [
+        { "id": "turn_off_equipment", "text": "화면과 조명을 끄고 나간다.", "result": "회의실을 정리하고 나왔다. 다음 사람이 들어오기 전까지 공간은 잠시 조용해졌다.", "effects": { "meeting_room_left": "off" } },
+        { "id": "leave_for_next_meeting", "text": "곧 다시 쓸 테니 그대로 둔다.", "result": "다음 일정이 이어질 것을 생각하며 문을 닫았다. 동료에게 점심 메시지를 보냈다.", "effects": { "meeting_room_left": "on" } }
+      ]
+    },
+    {
+      "id": "worker_special_lunch_invite",
+      "special": true,
+      "afterPhase": "lunch",
+      "phase": "afternoon",
+      "timeline": { "clock": "14:10", "progress": "63%", "note": "오후 업무가 시작되기 전, 대화가 길어집니다" },
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": { "lunch_plan": "restaurant" },
+      "title": "엘리베이터 앞의 커피 제안",
+      "description": "점심을 마치고 돌아오는 길, 동료가 새로 생긴 가게에 들르자고 한다. 오후 보고서 초안은 아직 비어 있고, 잠깐의 여유도 필요해 보인다.",
+      "choices": [
+        { "id": "coffee_together", "text": "커피를 들고 잠깐 더 이야기한다.", "result": "일 얘기와 주말 얘기가 뒤섞였다. 사무실로 돌아올 때는 오후 햇빛이 조금 기울어 있었다.", "effects": { "afternoon_break": "together" } },
+        { "id": "return_to_desk", "text": "고맙다고 하고 먼저 자리로 돌아간다.", "result": "자리에 앉아 문서를 열었다. 커피는 식기 전에 몇 모금 마셨다.", "effects": { "afternoon_break": "desk" } }
+      ]
+    },
+    {
+      "id": "worker_special_after_work_invite",
+      "special": true,
+      "afterPhase": "afternoon",
+      "phase": "evening",
+      "timeline": { "clock": "19:10", "progress": "86%", "note": "귀갓길에 동료에게서 메시지가 옵니다" },
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": { "after_work_plan": "home" },
+      "title": "퇴근 뒤 도착한 메시지",
+      "description": "귀갓길에 동료에게서 근처에서 저녁을 먹자는 메시지가 도착했다. 집에는 밀린 일이 있고, 오늘은 평소보다 늦게까지 일했다.",
+      "choices": [
+        { "id": "join_dinner", "text": "한 끼 같이하고 천천히 돌아간다.", "result": "식사 중에는 일 이야기를 거의 하지 않았다. 헤어질 때 거리는 이미 어두워져 있었다.", "effects": { "after_work_plan": "dinner" } },
+        { "id": "go_home_first", "text": "오늘은 집에 가서 쉬겠다고 답한다.", "result": "다음에 보자는 말을 남기고 역으로 향했다. 집에 도착하면 조용히 쉬고 싶었다.", "effects": { "after_work_plan": "home" } }
+      ]
+    },
+    {
+      "id": "worker_special_colleague_callback",
+      "special": true,
+      "afterPhase": "forenoon",
+      "phase": "lunch",
+      "timeline": { "clock": "11:35", "progress": "43%", "note": "아침에 길을 안내한 동료가 다시 찾아옵니다" },
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": { "helped_colleague": true },
+      "title": "로비에서 만난 동료",
+      "description": "오전 회의가 끝나갈 무렵, 아침에 회의실을 찾던 직원이 다시 말을 건다. 안내해준 덕분에 첫 일정에 늦지 않았다며 자료 하나를 공유해준다.",
+      "choices": [
+        { "id": "review_shared_notes", "text": "자료를 함께 확인하고 빠진 내용을 보탠다.", "result": "서로 적어둔 내용을 맞춰보니 회의에서 놓친 부분이 채워졌다.", "effects": { "colleague_followup": "shared" } },
+        { "id": "thank_and_continue", "text": "고맙다고 인사하고 점심 약속으로 향한다.", "result": "자료를 저장하고 점심 장소로 향했다. 오전의 회의실은 조용해져 있었다.", "effects": { "colleague_followup": "saved" } }
+      ]
+    },
+    {
+      "id": "worker_special_lunchbox_break",
+      "special": true,
+      "afterPhase": "lunch",
+      "phase": "afternoon",
+      "timeline": { "clock": "14:10", "progress": "63%", "note": "도시락을 마치고 돌아오자 오후 일정이 기다립니다" },
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": { "lunch_plan": "lunchbox" },
+      "title": "식사 뒤에 도착한 일정 변경",
+      "description": "도시락을 정리하고 자리로 돌아오니 오후 회의가 삼십 분 앞당겨졌다는 알림이 와 있다. 자료는 아직 정리 중이고, 동료는 회의실을 확인하러 자리를 비웠다.",
+      "choices": [
+        { "id": "prepare_now", "text": "자료를 챙겨 회의실을 먼저 확인한다.", "result": "필요한 문서를 들고 회의실로 향했다. 비어 있는 동안 화면과 조명을 살펴볼 수 있었다.", "effects": { "afternoon_break": "prepared" } },
+        { "id": "ask_for_help", "text": "동료에게 자료 확인을 부탁하고 발표 내용을 다듬는다.", "result": "역할을 나누니 준비가 조금 빨라졌다. 회의 시작 전 짧게 내용을 맞췄다.", "effects": { "afternoon_break": "delegated" } }
+      ]
+    },
+    {
+      "id": "worker_evening_after_dinner",
+      "phase": "evening",
+      "roles": ["worker"],
+      "weight": 1,
+      "conditions": { "after_work_plan": "dinner" },
+      "title": "늦은 저녁 뒤의 집",
+      "description": "동료와 식사를 마치고 집에 도착했다. 평소보다 늦은 시간이지만, 낮에 나눴던 이야기가 아직 귓가에 남아 있다.",
+      "choices": [
+        { "id": "put_phone_away", "text": "휴대전화를 내려놓고 씻은 뒤 쉰다.", "result": "알림을 잠시 꺼두었다. 집 안은 다시 조용해졌다.", "effects": { "evening_routine": "rest" } },
+        { "id": "check_tomorrow", "text": "내일 일정만 확인하고 잠자리에 든다.", "result": "캘린더를 확인하고 알람을 맞췄다. 오늘의 대화는 내일로 이어질 것 같았다.", "effects": { "evening_routine": "plan" } }
+      ]
+    }
+  ]
+}

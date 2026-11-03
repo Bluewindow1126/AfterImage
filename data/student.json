@@ -1,0 +1,196 @@
+{
+  "role": "student",
+  "events": [
+    {
+      "id": "student_morning_commute",
+      "phase": "morning",
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": {},
+      "title": "등굣길의 갈림길",
+      "description": "정류장까지는 걸어서 5분. 버스는 곧 도착한다는 알림이 떴다.\n교문까지는 아직 4km 남았다.",
+      "choices": [
+        { "id": "walk", "text": "천천히 걸으며 잠을 깬다.", "result": "차가운 공기가 잠을 조금 밀어냈다.", "effects": { "transport": "walk" }, "activity": { "mode": "walk", "category": "transport", "label": "도보", "distanceKm": 4 } },
+        { "id": "bus", "text": "버스를 타고 여유를 조금 벌어둔다.", "result": "창밖의 익숙한 거리가 천천히 뒤로 흘렀다.", "effects": { "transport": "bus" }, "activity": { "mode": "bus", "category": "transport", "label": "버스", "distanceKm": 4 } },
+        { "id": "car", "text": "가족 차를 타고 빠르게 간다.", "result": "신호에 멈춘 차 안에서 오늘의 일정을 떠올렸다.", "effects": { "transport": "car" }, "activity": { "mode": "car", "category": "transport", "label": "승용차 동승", "distanceKm": 4 } }
+      ]
+    },
+    {
+      "id": "student_forenoon_class",
+      "phase": "forenoon",
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": {},
+      "title": "창가 자리의 오전",
+      "description": "수업이 이어진다. 창문 틈으로 바람이 들어오고, 교실 뒤쪽 조명은 켜져 있다.",
+      "choices": [
+        { "id": "focus", "text": "노트를 펴고 수업에 집중한다.", "result": "노트 한쪽에 수업 내용이 차곡차곡 쌓였다.", "effects": { "morning_focus": true } },
+        { "id": "window", "text": "잠깐 창문을 열어 공기를 바꾼다.", "result": "교실 안 공기가 조금 가벼워졌다.", "effects": { "air_break": true } }
+      ]
+    },
+    {
+      "id": "student_lunch",
+      "phase": "lunch",
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": {},
+      "title": "점심시간의 작은 틈",
+      "description": "친구들은 매점으로 향한다. 식판에는 오늘의 메뉴가 남아 있고, 오후 수업 전까지 시간은 넉넉하지 않다.",
+      "choices": [
+        { "id": "cafeteria", "text": "급식실에서 친구들과 먹는다.", "result": "식판을 비우고 친구와 다음 수업 이야기를 나눴다.", "effects": { "lunch_plan": "cafeteria" } },
+        { "id": "snack", "text": "매점에서 간단히 사 먹는다.", "result": "짧은 점심시간, 익숙한 간식으로 허기를 달랬다.", "effects": { "lunch_plan": "snack" } }
+      ]
+    },
+    {
+      "id": "student_afternoon_default",
+      "phase": "afternoon",
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": {},
+      "title": "마지막 수업이 끝난 뒤",
+      "description": "마지막 종이 울리고 교실이 비기 시작한다. 친구가 같이 돌아가자고 기다리고 있고, 집에 가면 해야 할 일도 떠오른다.",
+      "choices": [
+        { "id": "walk_home", "text": "친구와 집 방향으로 걸어간다.", "result": "길가의 가게 불빛이 하나둘 켜졌다. 걸음을 맞추는 동안 오늘의 이야기가 이어졌다.", "effects": { "afternoon_plan": "walk" }, "activity": { "mode": "walk", "category": "transport", "label": "도보", "distanceKm": 4 } },
+        { "id": "bus_home", "text": "버스를 타고 먼저 출발한다.", "result": "오늘 있었던 일을 생각하다 보니 정류장에 도착했다. 창밖은 노을빛으로 물들고 있었다.", "effects": { "afternoon_plan": "bus" }, "activity": { "mode": "bus", "category": "transport", "label": "버스", "distanceKm": 4 } }
+      ]
+    },
+    {
+      "id": "student_afternoon_car",
+      "phase": "afternoon",
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": { "transport": "car" },
+      "title": "교문 앞의 귀가 제안",
+      "description": "마지막 수업이 끝났다. 아침에 함께 왔던 가족의 차가 교문 앞에 있고, 친구는 가까운 곳까지만 같이 가자며 기다리고 있다.",
+      "choices": [
+        { "id": "ride_again", "text": "오늘은 돌아갈 때도 차를 탄다.", "result": "익숙한 좌석에 기대어 하루를 천천히 접었다.", "effects": { "afternoon_plan": "car" }, "activity": { "mode": "car", "category": "transport", "label": "승용차 동승", "distanceKm": 4 } },
+        { "id": "walk_friend", "text": "친구와 집 방향으로 걸으며 귀가한다.", "result": "몇 정거장만큼의 이야기를 나누고 집으로 향했다.", "effects": { "afternoon_plan": "walk" }, "activity": { "mode": "walk", "category": "transport", "label": "도보", "distanceKm": 4 } }
+      ]
+    },
+    {
+      "id": "student_evening",
+      "phase": "evening",
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": {},
+      "title": "방 안에 남은 저녁",
+      "description": "집에 도착했다. 책상 위에는 아직 펼치지 않은 문제집, 창밖에는 불 켜진 아파트가 보인다.",
+      "choices": [
+        { "id": "study", "text": "책상 조명을 켜고 숙제를 시작한다.", "result": "오늘의 마지막 페이지를 넘기며 하루를 마쳤다.", "effects": { "evening_routine": "study" } },
+        { "id": "rest", "text": "잠깐 쉬며 가족과 이야기를 나눈다.", "result": "대화가 길어졌다. 문제집은 내일의 나에게 맡겼다.", "effects": { "evening_routine": "rest" } }
+      ]
+    },
+    {
+      "id": "student_special_gate_scramble",
+      "special": true,
+      "afterPhase": "morning",
+      "phase": "forenoon",
+      "timeline": { "clock": "08:05", "progress": "22%", "note": "첫 수업 전, 교문 앞에 작은 소란이 생깁니다" },
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": {},
+      "title": "교문 앞에 흩어진 공책",
+      "description": "교문에 거의 도착했을 때 앞서가던 학생의 공책이 바람에 흩어진다. 첫 종이 울리기까지는 몇 분 남지 않았고, 복도에서는 하루를 시작하는 발소리가 들린다.",
+      "choices": [
+        { "id": "help_pickup", "text": "몇 장을 주워 건네고 함께 교실로 향한다.", "result": "공책을 건네자 짧은 인사가 돌아왔다. 둘은 첫 종이 울릴 때 나란히 교실 문을 들어섰다.", "effects": { "helped_student": true, "arrived_before_bell": false } },
+        { "id": "keep_moving", "text": "먼저 교실에 가 자리를 잡는다.", "result": "교실 문을 열고 자리에 앉았다. 잠시 뒤 복도에 첫 종이 울렸다.", "effects": { "helped_student": false, "arrived_before_bell": true } }
+      ]
+    },
+    {
+      "id": "student_special_empty_classroom",
+      "special": true,
+      "afterPhase": "forenoon",
+      "phase": "lunch",
+      "timeline": { "clock": "12:10", "progress": "49%", "note": "점심 종이 울리기 전, 교실에 잠깐 고요가 옵니다" },
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": { "arrived_before_bell": true },
+      "title": "교실 뒤에 남은 불빛",
+      "description": "오전 수업이 끝나고 다음 교시까지 짧은 쉬는 시간. 친구들은 새 교실로 향하고, 뒤쪽 조명은 켜진 채 책상 위에는 모둠 과제가 펼쳐져 있다.",
+      "choices": [
+        { "id": "switch_off_and_go", "text": "조명을 끄고 다음 교실로 이동한다.", "result": "스위치를 내리고 복도로 나섰다. 다음 교시 준비물을 챙길 시간은 충분했다.", "effects": { "classroom_light": "off" } },
+        { "id": "finish_task_first", "text": "과제를 몇 분 더 마무리하고 이동한다.", "result": "마지막 문장을 적고 교실을 나섰다. 복도에는 다음 종을 기다리는 학생들이 모여 있었다.", "effects": { "classroom_light": "on" } }
+      ]
+    },
+    {
+      "id": "student_special_classmate_followup",
+      "special": true,
+      "afterPhase": "forenoon",
+      "phase": "lunch",
+      "timeline": { "clock": "12:10", "progress": "49%", "note": "아침에 만난 친구가 점심 전 다시 말을 건넵니다" },
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": { "helped_student": true },
+      "title": "아침에 만난 친구",
+      "description": "쉬는 시간, 아침에 공책을 주웠던 학생이 같은 복도에서 다시 말을 건다. 고맙다며 필기한 내용을 보여주고, 다음 수업 교실도 함께 확인한다.",
+      "choices": [
+        { "id": "compare_notes", "text": "필기를 함께 확인하고 빠진 부분을 보탠다.", "result": "서로 다른 메모를 맞춰보니 놓친 내용이 하나씩 채워졌다.", "effects": { "shared_notes": true } },
+        { "id": "head_to_class", "text": "고맙다는 인사를 나누고 먼저 교실로 간다.", "result": "다음에 보자는 말을 남기고 각자의 교실로 향했다.", "effects": { "shared_notes": false } }
+      ]
+    },
+    {
+      "id": "student_special_club_notice",
+      "special": true,
+      "afterPhase": "lunch",
+      "phase": "afternoon",
+      "timeline": { "clock": "14:10", "progress": "63%", "note": "오후 일정에 작은 변수가 생깁니다" },
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": { "lunch_plan": "cafeteria" },
+      "title": "바뀐 교실 공지",
+      "description": "급식실에서 돌아오니 다음 교시 장소가 바뀌었다는 알림이 와 있다. 함께 점심을 먹은 친구는 공지를 못 본 듯 다른 복도로 향하고, 새 교실까지 갈 시간은 빠듯하다.",
+      "choices": [
+        { "id": "notify_classmate", "text": "친구에게 알리고 함께 새 교실로 이동한다.", "result": "메시지를 본 친구가 방향을 바꿨다. 둘은 다음 종이 울리기 전에 새 교실에 도착했다.", "effects": { "class_plan": "shared" } },
+        { "id": "go_ahead_to_class", "text": "준비물을 챙겨 먼저 이동하고 현장에서 알려준다.", "result": "새 교실에서 자리를 잡고 친구가 도착할 때까지 공지를 다시 확인했다.", "effects": { "class_plan": "ahead" } }
+      ]
+    },
+    {
+      "id": "student_special_snack_room_change",
+      "special": true,
+      "afterPhase": "lunch",
+      "phase": "afternoon",
+      "timeline": { "clock": "14:10", "progress": "63%", "note": "매점 앞에서 다음 수업 장소가 바뀐 걸 알게 됩니다" },
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": { "lunch_plan": "snack" },
+      "title": "매점 앞에서 온 알림",
+      "description": "간식을 다 먹을 즈음, 다음 교시 장소가 바뀌었다는 반 단체 메시지가 도착한다. 친구는 아직 매점 안에 있고, 새 교실까지는 복도 끝을 돌아가야 한다.",
+      "choices": [
+        { "id": "notify_snack_friend", "text": "친구에게 알리고 함께 새 교실로 이동한다.", "result": "친구가 간식을 챙겨 나왔다. 둘은 다음 종이 울리기 전에 새 교실을 찾았다.", "effects": { "class_plan": "shared" } },
+        { "id": "go_ahead_from_snack", "text": "먼저 이동해 자리를 잡고 친구에게 위치를 보낸다.", "result": "새 교실에서 위치를 공유했다. 친구가 복도 끝에서 손을 흔들었다.", "effects": { "class_plan": "ahead" } }
+      ]
+    },
+    {
+      "id": "student_special_delivery_box",
+      "special": true,
+      "afterPhase": "afternoon",
+      "phase": "evening",
+      "timeline": { "clock": "19:10", "progress": "86%", "note": "집 근처에서 하루의 마지막 변수를 만납니다" },
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": { "class_plan": "ahead" },
+      "title": "현관 앞의 택배 상자",
+      "description": "새 교실을 먼저 찾아 친구에게 알려준 뒤 집에 도착했다. 현관 앞에는 가족이 주문한 물건이 놓여 있고, 상자 안에는 완충재와 포장지가 차곡차곡 들어 있다.",
+      "choices": [
+        { "id": "unpack_now", "text": "포장을 정리해 분리해두고 상자를 접는다.", "result": "포장재를 나눠 두고 상자를 접었다. 현관에 남은 자리가 조금 넓어졌다.", "effects": { "package_handled": "now" } },
+        { "id": "unpack_later", "text": "일단 안으로 들이고 저녁부터 챙긴다.", "result": "상자를 방 한쪽에 두고 손을 씻었다. 오늘은 그 안을 열지 않기로 했다.", "effects": { "package_handled": "later" } }
+      ]
+    },
+    {
+      "id": "student_special_classmate_message",
+      "special": true,
+      "afterPhase": "afternoon",
+      "phase": "evening",
+      "timeline": { "clock": "19:10", "progress": "86%", "note": "오늘 함께 움직인 친구에게서 메시지가 옵니다" },
+      "roles": ["student"],
+      "weight": 1,
+      "conditions": { "class_plan": "shared" },
+      "title": "친구에게서 온 사진",
+      "description": "집에 도착할 즈음, 낮에 새 교실을 함께 찾았던 친구가 칠판에 적힌 과제 내용을 사진으로 보내왔다. 내일 아침까지 확인해달라는 짧은 메시지도 붙어 있다.",
+      "choices": [
+        { "id": "reply_now", "text": "확인했다는 답장을 보내고 과제를 읽어본다.", "result": "사진을 저장하고 필요한 부분을 메모했다. 내일 물어볼 내용이 생겼다.", "effects": { "classmate_followup": "replied" } },
+        { "id": "reply_later", "text": "내일 이야기하자고 답하고 잠시 내려둔다.", "result": "답장을 보낸 뒤 휴대전화를 뒤집어 놓았다. 오늘의 대화는 거기서 멈췄다.", "effects": { "classmate_followup": "later" } }
+      ]
+    }
+  ]
+}

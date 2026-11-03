@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17212b" />
+    <meta name="description" content="선택과 우연으로 만들어지는 하루, 잔상." />
+    <title>잔상 | Afterimage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <main id="app" class="app-shell">
+      <section id="home-screen" class="screen screen-home is-active" aria-labelledby="home-title">
+        <div class="home-atmosphere" aria-hidden="true">
+          <div class="home-stars"></div>
+          <div class="home-moon"></div>
+          <div class="sun"></div>
+          <div class="horizon horizon-back"></div>
+          <div class="horizon horizon-front"></div>
+          <div class="skyline skyline-back"></div>
+          <div class="skyline skyline-front"></div>
+        </div>
+        <div class="home-hero">
+          <header id="home" class="topbar home-topbar">
+            <a class="wordmark" href="#home" aria-label="잔상 첫 화면"><span class="wordmark-mark">A</span> AFTERIMAGE</a>
+            <span class="edition">A DAY, REMEMBERED</span>
+          </header>
+          <div class="home-content">
+            <p class="eyebrow">당신의 하루가 남긴 것</p>
+            <h1 id="home-title">잔상<span class="title-period">.</span></h1>
+            <p class="home-subtitle">당신에게는 평범한 하루였습니다.<br />지구에게도 그랬을까요?</p>
+            <button class="button button-primary button-start" data-action="choose-life">
+              하루 시작하기 <span aria-hidden="true">↗</span>
+            </button>
+            <div class="home-links">
+              <a class="text-button" href="#guide-section">게임 안내 <span aria-hidden="true">↓</span></a>
+              <a class="text-button" href="#sources-section">자료 출처 <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+        </div>
+
+        <section id="home-story" class="home-story story-choice" aria-labelledby="story-choice-title">
+          <div class="story-layout">
+            <div class="story-copy">
+              <p class="eyebrow">일상 속 선택과 환경</p>
+              <h2 id="story-choice-title">매일의 선택이 모여<br />하루의 흔적이 됩니다.</h2>
+              <p>출근길에 어떤 이동수단을 고르는지, 점심을 어떻게 해결하는지, 집에 돌아와 무엇을 사용하는지. 환경에 남는 영향은 특별한 순간보다 이런 일상의 선택이 쌓이며 만들어집니다.</p>
+              <p>잔상은 학생 또는 직장인의 평범한 하루를 따라가며, 각자의 상황과 이유에 따라 달라지는 선택을 경험하는 시뮬레이터입니다. 더 친환경적인 답을 맞히는 대신, 내 선택이 어떤 하루를 만들었는지 마지막에 돌아봅니다.</p>
+            </div>
+            <div class="moment-list" aria-label="하루 속 선택의 순간">
+              <article class="moment-item"><span class="moment-time">08:10</span><div><h3>이동</h3><p>늦은 아침, 어떤 길을 택할까요?</p></div><span class="moment-symbol" aria-hidden="true">↗</span></article>
+              <article class="moment-item"><span class="moment-time">12:40</span><div><h3>점심</h3><p>짧은 휴식에 무엇을 남길까요?</p></div><span class="moment-symbol" aria-hidden="true">＋</span></article>
+              <article class="moment-item"><span class="moment-time">21:15</span><div><h3>저녁</h3><p>집에 돌아온 뒤 하루를 어떻게 닫을까요?</p></div><span class="moment-symbol" aria-hidden="true">⌂</span></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="guide-section" class="home-story story-method" aria-labelledby="story-method-title">
+          <div class="story-layout">
+            <div class="story-copy">
+              <p class="eyebrow">어떻게 플레이하나요?</p>
+              <h2 id="story-method-title">다섯 장면을 지나<br />나만의 하루를 완성합니다.</h2>
+              <p>먼저 학생 또는 직장인의 삶을 고릅니다. 아침부터 저녁까지 다섯 시간대에서 상황을 읽고 행동을 선택하면 하루가 이어집니다. 앞선 선택과 그날의 상황에 따라 다음 장면이 달라질 수 있어, 매번 같은 흐름으로 진행되지는 않습니다.</p>
+              <p>플레이 중에는 배출량을 보여주지 않습니다. 하루가 끝난 뒤 선택 기록을 돌아보고, 활동량을 계산할 수 있는 항목의 환경 영향을 결과에서 확인합니다.</p>
+            </div>
+            <div class="guide-details" aria-label="게임 진행 방식">
+              <p><strong>01 · 하루를 고릅니다</strong><span>학생 또는 직장인의 일상 중 하나를 선택합니다.</span></p>
+              <p><strong>02 · 다섯 번 선택합니다</strong><span>아침, 오전, 점심, 오후, 저녁의 상황에 답합니다.</span></p>
+              <p><strong>03 · 하루를 돌아봅니다</strong><span>선택 기록과 계산 가능한 활동의 추정치를 확인합니다.</span></p>
+            </div>
+          </div>
+        </section>
+
+        <section id="sources-section" class="home-story story-sources" aria-labelledby="story-sources-title">
+          <div class="story-layout">
+            <div class="story-copy">
+              <p class="eyebrow">결과 계산과 자료</p>
+              <h2 id="story-sources-title">결과는 측정값이 아닌<br />근거 기반 추정치입니다.</h2>
+              <p>환경 영향은 임의의 점수로 환산하지 않습니다. 기록된 활동량에 해당 활동의 배출계수를 곱해 예상 배출량을 계산하며, 교통 활동은 승객-km 기준으로 다룹니다.</p>
+              <p>현재 적용된 계수는 플레이 흐름을 확인하기 위한 시연용 예시값이며, 공식 국내 자료로 검증되지 않았습니다. 따라서 실제 배출량이나 교통수단 간 정밀 비교로 해석할 수 없습니다.</p>
+            </div>
+            <div class="method-note"><span class="method-equation">활동량 <b>×</b> 배출계수 <b>=</b> 예상 배출량</span><span>정식 자료를 반영할 때는 계수의 출처, 기준 연도, 단위와 계산 범위를 함께 표시합니다.</span></div>
+          </div>
+        </section>
+
+        <section class="home-story story-invitation" aria-labelledby="story-invitation-title">
+          <div class="story-layout">
+            <div class="invitation-copy">
+              <p class="eyebrow">노을이 밤으로 바뀌기 전에</p>
+              <h2 id="story-invitation-title">오늘은 어떤 하루로<br />기억될까요?</h2>
+              <p>이제 하루를 시작해보세요. 당신의 선택이 만든 장면과 그날의 흔적을 마지막에 함께 살펴봅니다.</p>
+              <button class="button button-primary button-start" data-action="choose-life">하루 시작하기 <span aria-hidden="true">↗</span></button>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <a class="wordmark" href="#home"><span class="wordmark-mark">A</span> AFTERIMAGE</a>
+          <p>잔상은 7조가 만든 하루의 환경 흔적 시뮬레이터입니다.</p>
+          <span class="footer-credit">기획 · 디자인 · 개발 <strong>7조</strong></span>
+          <span class="copyright">© 2026 AFTERIMAGE 7조. All rights reserved.</span>
+        </footer>
+      </section>
+
+      <section id="life-screen" class="screen life-screen" aria-labelledby="life-title" hidden>
+        <div class="life-picker">
+          <div class="life-picker-title">
+            <p class="eyebrow">A DAY BEGINS</p>
+            <h2 id="life-title">어떤 하루를 살아볼까요?</h2>
+          </div>
+          <div class="life-role-options" role="group" aria-label="하루의 역할 선택">
+            <button class="life-role-card" data-role="student" aria-pressed="false">
+              <span class="life-role-kicker">01 / STUDENT</span>
+              <span class="life-role-name">학생의 하루</span>
+              <span class="life-role-detail">등교와 수업, 친구들 사이에서 이어지는 하루</span>
+              <span class="life-role-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="life-role-card" data-role="worker" aria-pressed="false">
+              <span class="life-role-kicker">02 / WORKER</span>
+              <span class="life-role-name">직장인의 하루</span>
+              <span class="life-role-detail">출근부터 퇴근 후까지, 일과 생활이 교차하는 하루</span>
+              <span class="life-role-arrow" aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <div class="life-picker-actions">
+            <button id="begin-day" class="button button-primary" disabled>선택한 하루로 들어가기 <span aria-hidden="true">→</span></button>
+          </div>
+          <button class="life-back-button" data-action="home"><span aria-hidden="true">↙</span> 돌아가기</button>
+        </div>
+      </section>
+
+      <section id="simulation-screen" class="screen simulation-screen" aria-labelledby="event-title" hidden>
+        <div class="simulation-ending-fade" aria-hidden="true"></div>
+        <div class="simulation-backdrop" aria-hidden="true">
+          <div class="sky-layer sky-dawn"></div>
+          <div class="sky-layer sky-morning"></div>
+          <div class="sky-layer sky-noon"></div>
+          <div class="sky-layer sky-sunset"></div>
+          <div class="sky-layer sky-night"></div>
+          <div class="simulation-sun"></div>
+          <div class="simulation-skyline"></div>
+            <div class="simulation-time-shade"></div>
+        </div>
+        <header class="day-topbar">
+          <button class="icon-button day-exit" data-action="home" aria-label="하루를 마치고 나가기">×</button>
+          <div class="dayline-wrap" aria-label="하루의 시간 흐름">
+            <div class="dayline-caption"><span id="role-indicator" class="role-indicator"></span><span>오늘의 시간</span></div>
+            <div class="dayline-track"><div id="dayline-fill" class="dayline-fill"></div><span id="dayline-marker" class="dayline-marker" aria-hidden="true">☼</span></div>
+            <div class="dayline-labels" aria-hidden="true"><span>새벽</span><span>오전</span><span>한낮</span><span>노을</span><span>밤</span></div>
+          </div>
+          <div class="daytime-readout"><strong id="game-clock">06:10</strong><span id="time-note">도시가 천천히 눈을 뜹니다</span></div>
+        </header>
+        <main class="simulation-layout">
+          <article class="event-panel">
+            <div class="event-meta"><span id="phase-kicker" class="eyebrow"></span></div>
+            <h2 id="event-title"></h2>
+            <p id="event-description" class="event-description"></p>
+            <div id="story-feedback" class="story-feedback" aria-live="polite" hidden><span class="feedback-mark" aria-hidden="true">✳</span><div class="feedback-copy"><p id="choice-response"></p><p id="story-transition" class="story-transition"></p></div></div>
+            <div id="choice-area" class="choice-area" hidden>
+              <p class="choice-invitation">그 순간, 당신은</p>
+              <div id="choice-list" class="choice-list"></div>
+            </div>
+          </article>
+        </main>
+      </section>
+
+      <section id="memory-screen" class="screen memory-screen" aria-labelledby="memory-title" hidden>
+        <div class="memory-atmosphere" aria-hidden="true"><div class="memory-haze"></div></div>
+        <div class="memory-shell">
+          <p class="memory-eyebrow">AFTERIMAGE · DAY CLOSED</p>
+          <div id="memory-opening" class="memory-opening" aria-live="polite">
+            <p class="memory-line">하루가 저물었습니다.</p>
+            <p class="memory-line">오늘 역시, 당신에게는 평범한 하루였습니다.</p>
+            <p id="memory-title" class="memory-line memory-last-line">지구에게도 그랬을까요?</p>
+          </div>
+          <button id="memory-continue" class="memory-continue" hidden>하루의 흔적 보기 <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen result-screen" aria-labelledby="result-title" hidden>
+        <div class="result-atmosphere" aria-hidden="true"><div class="result-sun"></div><div class="result-city"></div></div>
+        <header class="result-header">
+          <span class="wordmark"><span class="wordmark-mark">A</span> AFTERIMAGE</span>
+          <span class="result-header-note">하루 기록 · DAY REPORT</span>
+        </header>
+        <main class="result-wrap">
+          <div class="result-intro">
+            <p class="eyebrow">THE DAY YOU MADE</p>
+            <h2 id="result-title">오늘의 하루를 돌아봅니다<span class="title-period">.</span></h2>
+            <p class="result-lead">선택으로 기록된 활동과 그에 따른 추정치를 정리했습니다.</p>
+          </div>
+          <div class="result-overview">
+            <div class="total-block"><span class="metric-label">계산 대상 활동의 예상 배출량</span><strong id="total-emissions">—</strong><span class="metric-unit">kgCO₂e <span class="estimate-tag">시연 추정치</span></span></div>
+            <div class="chart-block"><div class="chart-heading"><span>분야별 예상 배출량</span><span>kgCO₂e</span></div><div id="emission-chart" class="emission-chart"></div></div>
+          </div>
+          <section class="impact-breakdown" aria-labelledby="impact-title">
+            <div class="report-section-heading"><p class="eyebrow">TRACE BY TRACE</p><h3 id="impact-title">예상 배출량은 여기서 나왔습니다</h3></div>
+            <div id="impact-list" class="impact-list"></div>
+          </section>
+          <div class="result-details">
+            <section class="reflection-section" aria-labelledby="reflection-title"><p class="eyebrow">ANOTHER POSSIBILITY</p><h3 id="reflection-title">다르게 흘러갈 수도 있었던 순간</h3><div id="reflection-list" class="reflection-list"></div></section>
+            <section class="history-section" aria-labelledby="history-title"><p class="eyebrow">YOUR DAY, IN WORDS</p><h3 id="history-title">하루의 선택 기록</h3><details class="history-disclosure"><summary><span>전체 기록 펼쳐보기</span><span id="history-count"></span></summary><ol id="choice-history" class="choice-history"></ol></details></section>
+          </div>
+          <p class="closing-line">“당신에게는 평범한 하루였습니다.<br />지구에게도 그랬을까요?”</p>
+          <div class="estimate-note"><span aria-hidden="true">i</span><p id="estimate-disclaimer">배출량은 시나리오 기반 참고용 추정치이며 실제 측정값이 아닙니다.</p></div>
+          <footer class="result-footer"><button class="text-button" data-dialog="sources-dialog">계수와 자료 안내</button><button class="button button-primary" data-action="home">처음으로 돌아가기 <span aria-hidden="true">↗</span></button></footer>
+        </main>
+      </section>
+    </main>
+
+    <dialog id="sources-dialog" class="info-dialog">
+      <form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form>
+      <p class="eyebrow">METHOD & SOURCES</p><h2>추정치에 대하여</h2>
+      <p>화면의 배출계수는 현재 플레이 흐름을 확인하기 위한 <strong>시연용 예시값</strong>입니다. 공식 국내 자료로 검증·교체하기 전까지 현실의 배출량이나 교통수단 간 정밀 비교로 해석하지 마세요.</p>
+      <p>계산 구조는 활동량 × 배출계수이며, 교통 활동은 승객-km 기준으로 처리합니다. 공개 배포 전에는 계수의 출처·기준 연도·단위를 확인해 이 안내와 결과 데이터에 함께 반영해야 합니다.</p>
+      <div class="dialog-foot">이 버전의 자료 상태 <strong>계수 검증 필요</strong></div>
+    </dialog>
+    <div id="live-announcer" class="visually-hidden" aria-live="polite"></div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "status": "demo",
+  "disclaimer": "배출량은 시나리오 기반 참고용 추정치입니다. 현재 계수는 플레이 흐름 확인을 위한 시연용 예시값으로, 공식 국내 자료로 검증·교체하기 전까지 현실의 배출량으로 해석하거나 정밀 비교에 사용하지 마세요.",
+  "method": "활동량(passenger-km) × 배출계수(kgCO2e/passenger-km)",
+  "factors": {
+    "walk": { "value": 0, "unit": "passenger-km", "source": "직접 이동 배출 미산정 (시연 모델)" },
+    "bus": { "value": 0.10, "unit": "passenger-km", "source": "시연용 예시값, 출처 검증 필요" },
+    "subway": { "value": 0.04, "unit": "passenger-km", "source": "시연용 예시값, 출처 검증 필요" },
+    "car": { "value": 0.18, "unit": "passenger-km", "source": "시연용 예시값, 출처 검증 필요" }
+  }
+}
